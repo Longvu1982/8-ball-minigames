@@ -59,6 +59,8 @@ export function GameTabs({ game }: GameTabsProps) {
                 src={game.videoUrl}
                 autoPlay
                 className="w-full h-auto rounded-lg"
+                onPointerDown={(e) => e.stopPropagation()} // 👈 prevents carousel swipe
+                onTouchStart={(e) => e.stopPropagation()} // 👈 also for touch devices
               />
             </div>
           </div>

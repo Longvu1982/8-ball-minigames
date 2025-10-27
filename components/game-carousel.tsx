@@ -45,7 +45,7 @@ export function GameCarousel() {
       <div className="flex items-center justify-between mb-8 gap-4">
         <button
           onClick={goToPrevious}
-          className="p-2 text-foreground transition-opacity hover:opacity-70 shrink-0"
+          className="p-2 pr-20 cursor-pointer text-foreground transition-opacity hover:opacity-70 shrink-0"
           aria-label="Previous game"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -66,15 +66,18 @@ export function GameCarousel() {
 
         <button
           onClick={goToNext}
-          className="p-2 text-foreground transition-opacity hover:opacity-70 shrink-0"
+          className="p-2 pl-20 cursor-pointer text-foreground transition-opacity hover:opacity-70 shrink-0"
           aria-label="Next game"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
       </div>
 
-      <Carousel setApi={setApi} className="w-full">
-        <CarouselContent>
+      <Carousel setApi={setApi} className="w-full" opts={{ watchDrag: false }}>
+        <CarouselContent
+          onPointerDown={(e) => e.stopPropagation()} // 👈 prevents carousel swipe
+          onTouchStart={(e) => e.stopPropagation()} // 👈 also for touch devices
+        >
           {GAMES.map((game, idx) => (
             <CarouselItem key={idx} className="pl-2">
               <div className="mb-8">
@@ -138,12 +141,45 @@ export function GameCarousel() {
                 </Accordion>
 
                 {/* Game tabs */}
-                <GameTabs game={game} />
+                <div>
+                  <GameTabs game={game} />
+                </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
+
+      <div className="flex items-center justify-between mb-8 gap-4">
+        <button
+          onClick={goToPrevious}
+          className="p-2 pr-20 cursor-pointer text-foreground transition-opacity hover:opacity-70 shrink-0"
+          aria-label="Previous game"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        <div className="flex gap-2 justify-center flex-1">
+          {GAMES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => api?.scrollTo(idx)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                idx === current ? "bg-primary" : "bg-border"
+              }`}
+              aria-label={`Go to game ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={goToNext}
+          className="p-2 pl-20 cursor-pointer text-foreground transition-opacity hover:opacity-70 shrink-0"
+          aria-label="Next game"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      </div>
     </div>
   );
 }
