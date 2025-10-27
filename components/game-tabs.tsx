@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import type { GameConfig } from "@/lib/game-data"
-import { BilliardTable } from "./billiard-table"
+import type { GameConfig } from "@/lib/game-data";
+import { useState } from "react";
+import GridBillardTable from "./billiard-table-v2";
 
 interface GameTabsProps {
-  game: GameConfig
+  game: GameConfig;
 }
 
 export function GameTabs({ game }: GameTabsProps) {
-  const [activeTab, setActiveTab] = useState<"video" | "table">("table")
-  const [randomizeKey, setRandomizeKey] = useState(0)
+  const [activeTab, setActiveTab] = useState<"video" | "table">("video");
 
   return (
     <div className="w-full">
@@ -42,22 +41,36 @@ export function GameTabs({ game }: GameTabsProps) {
         {activeTab === "video" && (
           <div className="flex items-center justify-center bg-muted p-12">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-primary-foreground" fill="currentColor" viewBox="0 0 20 20">
+              {/* <div className="w-16 h-16 bg-primary flex items-center justify-center mx-auto mb-4">
+                <svg
+                  className="w-8 h-8 text-primary-foreground"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                 </svg>
               </div>
-              <p className="text-muted-foreground">Video tutorial for {game.name} coming soon</p>
+              <p className="text-muted-foreground">
+                Video tutorial for {game.name} coming soon
+              </p> */}
+
+              <video
+                controls
+                src={game.videoUrl}
+                autoPlay
+                className="w-full h-auto rounded-lg"
+              />
             </div>
           </div>
         )}
 
         {activeTab === "table" && (
-          <div className="flex justify-center">
-            <BilliardTable key={randomizeKey} game={game} onRandomize={() => setRandomizeKey((prev) => prev + 1)} />
+          <div className="">
+            {/* <BilliardTable key={randomizeKey} game={game} onRandomize={() => setRandomizeKey((prev) => prev + 1)} /> */}
+            <GridBillardTable game={game} />
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }

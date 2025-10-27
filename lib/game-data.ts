@@ -1,12 +1,13 @@
-export type GameDifficulty = "easy" | "medium" | "hard"
+export type GameDifficulty = "easy" | "medium" | "hard";
 
 export interface GameConfig {
-  id: string
-  name: string
-  difficulty: GameDifficulty
-  description: string
-  rules: string[]
-  ballPositions: "random" | "fixed"
+  id: string;
+  name: string;
+  difficulty: GameDifficulty;
+  description: string;
+  rules: string[];
+  ballPositions: "random" | "fixed";
+  videoUrl: string;
 }
 
 export const GAMES: GameConfig[] = [
@@ -14,7 +15,9 @@ export const GAMES: GameConfig[] = [
     id: "three-balls-runout",
     name: "3 Balls Runout",
     difficulty: "hard",
-    description: "Pocket balls 1, 2, and 3 in sequence. Place the cue ball strategically and execute a perfect run.",
+    description:
+      "Pocket balls 1, 2, and 3 in sequence. Place the cue ball strategically and execute a perfect run.",
+    videoUrl: "/videos/game_1_3_random_balls.mp4",
     rules: [
       "Balls 1, 2, 3 are placed randomly on the table",
       "You can place the cue ball anywhere",
@@ -28,7 +31,9 @@ export const GAMES: GameConfig[] = [
     id: "cue-ball-control",
     name: "Cue Ball Control",
     difficulty: "hard",
-    description: "Pocket the target ball and land the cue ball in the designated zone. Master precision and control.",
+    description:
+      "Pocket the target ball and land the cue ball in the designated zone. Master precision and control.",
+    videoUrl: "/videos/game_2_cue_control.mp4",
     rules: [
       "Target ball (1) is placed randomly near a pocket",
       "A target zone is randomly assigned on the table",
@@ -42,7 +47,9 @@ export const GAMES: GameConfig[] = [
     id: "bank-shot",
     name: "Bank Shot",
     difficulty: "medium",
-    description: "Bank the target ball off the rail and pocket it. Learn angle and speed control.",
+    description:
+      "Bank the target ball off the rail and pocket it. Learn angle and speed control.",
+    videoUrl: "/videos/game_3_bank.mp4",
     rules: [
       "Target ball is placed randomly on the table",
       "Place the cue ball anywhere",
@@ -56,7 +63,9 @@ export const GAMES: GameConfig[] = [
     id: "cue-bank-shot",
     name: "Cue Bank Shot",
     difficulty: "medium",
-    description: "Bank the cue ball off the rail to hit and pocket the target. Advanced rail play.",
+    description:
+      "Bank the cue ball off the rail to hit and pocket the target. Advanced rail play.",
+    videoUrl: "/videos/game_4_cue_bank.mp4",
     rules: [
       "Target ball is placed randomly near a pocket",
       "Place the cue ball anywhere",
@@ -70,7 +79,9 @@ export const GAMES: GameConfig[] = [
     id: "straight-shot",
     name: "Straight Shot",
     difficulty: "easy",
-    description: "Execute a perfect straight shot with stun. The simplest but most fundamental technique.",
+    description:
+      "Execute a perfect straight shot with stun. The simplest but most fundamental technique.",
+    videoUrl: "/videos/game_5_straight.mp4",
     rules: [
       "Target ball is placed in the middle of the table",
       "Cue ball is at the second pivot from long rail, first pivot from short rail",
@@ -83,8 +94,10 @@ export const GAMES: GameConfig[] = [
   {
     id: "through-shot",
     name: "Through Shot",
-    difficulty: "hard",
-    description: "Navigate through two balls and return without contact. The ultimate precision challenge.",
+    difficulty: "easy",
+    description:
+      "Navigate through two balls and return without contact. The ultimate precision challenge.",
+    videoUrl: "/videos/game_6_through.mp4",
     rules: [
       "Two balls placed at second pivot from long rail, 15cm apart",
       "Cue ball at first pivot from long rail, opposite end",
@@ -94,16 +107,16 @@ export const GAMES: GameConfig[] = [
     ],
     ballPositions: "fixed",
   },
-]
+];
 
 export const DIFFICULTY_COLORS: Record<GameDifficulty, string> = {
   easy: "bg-green-500",
   medium: "bg-yellow-500",
   hard: "bg-red-500",
-}
+};
 
 export const DIFFICULTY_TEXT: Record<GameDifficulty, string> = {
   easy: "Easy",
   medium: "Medium",
   hard: "Hard",
-}
+};

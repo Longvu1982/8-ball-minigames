@@ -6,6 +6,14 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 import { DIFFICULTY_COLORS, DIFFICULTY_TEXT, GAMES } from "@/lib/game-data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useState } from "react";
@@ -97,22 +105,37 @@ export function GameCarousel() {
                 </div>
 
                 {/* Rules section */}
-                <div className="bg-secondary rounded p-4 mb-8">
-                  <h3 className="font-semibold text-foreground mb-3">Rules:</h3>
-                  <ul className="space-y-2">
-                    {game.rules.map((rule, ruleIdx) => (
-                      <li
-                        key={ruleIdx}
-                        className="flex gap-3 text-sm text-muted-foreground"
-                      >
-                        <span className="font-semibold text-primary">
-                          {ruleIdx + 1}.
-                        </span>
-                        <span>{rule}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <Accordion
+                  type="single"
+                  collapsible
+                  className="bg-secondary rounded px-4 mb-8 cursor-pointer"
+                  defaultValue="rules"
+                >
+                  <AccordionItem value="rules">
+                    <AccordionTrigger className="w-full cursor-pointer">
+                      <div>
+                        <h3 className="font-semibold text-foreground mb-3">
+                          Rules:
+                        </h3>
+                        <AccordionContent>
+                          <ul className="space-y-2">
+                            {game.rules.map((rule, ruleIdx) => (
+                              <li
+                                key={ruleIdx}
+                                className="flex gap-3 text-sm text-muted-foreground"
+                              >
+                                <span className="font-semibold text-primary">
+                                  {ruleIdx + 1}.
+                                </span>
+                                <span>{rule}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </AccordionContent>
+                      </div>
+                    </AccordionTrigger>
+                  </AccordionItem>
+                </Accordion>
 
                 {/* Game tabs */}
                 <GameTabs game={game} />
