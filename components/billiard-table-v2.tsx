@@ -1,8 +1,8 @@
 import { GameConfig } from "@/lib/game-data";
 import { cn } from "@/lib/utils";
+import tableTopUpscaleImage from "@/public/table-top-upscale.jpg";
 import Image from "next/image";
 import { useState } from "react";
-
 const COLS = 21;
 const ROWS = 11;
 
@@ -24,8 +24,6 @@ const gamesWithRandomPosition = [
 
 const GridBillardTable = ({ game }: { game: GameConfig }) => {
   const [positions, setPossitions] = useState<[number, number][]>([]);
-
-  console.log(positions);
 
   const generateRandomPosition = () => {
     const col = Math.floor(Math.random() * COLS) + 1;
@@ -124,8 +122,8 @@ const GridBillardTable = ({ game }: { game: GameConfig }) => {
       case "through-shot":
         return (
           <>
-            <Ball label="1" className="bg-yellow-400" position={[18, 5]} />
-            <Ball label="2" className="bg-blue-600" position={[18, 7]} />
+            <Ball label="1" className="bg-yellow-400" position={[16, 5]} />
+            <Ball label="2" className="bg-blue-600" position={[16, 7]} />
             <Ball
               label="-"
               className="bg-white text-red-600"
@@ -150,11 +148,12 @@ const GridBillardTable = ({ game }: { game: GameConfig }) => {
       )}
       <div className="relative">
         <Image
-          src="/table-top-upscale.jpg"
+          src={tableTopUpscaleImage}
           width={1000}
           height={1000}
           alt="table"
           className="w-full h-auto rounded-lg"
+          placeholder="blur"
         />
         <div className="absolute top-[11.2%] left-[6.3%] right-[6%] bottom-[11.3%] bg-red-200/0 grid grid-cols-21 grid-rows-11">
           {((positions.length > 0 &&
