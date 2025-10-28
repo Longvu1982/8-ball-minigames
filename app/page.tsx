@@ -2,16 +2,16 @@ import { GameCarousel } from "@/components/game-carousel";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white py-8 px-4">
+    <main className="min-h-screen bg-white py-8 px-1 md:px-4">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 w-full max-w-6xl mx-auto lg:pl-56">
-          <div className="flex items-center gap-4 mb-2">
+          <div className="flex items-center gap-1 md:gap-4 mb-2">
             <img
               src="/nab-logo.jpg"
               alt="NAB Logo"
               className="h-10 w-auto rounded-sm"
             />
-            <h1 className="text-5xl font-bold text-primaryx text-black">
+            <h1 className="text-xl md:text-5xl font-bold text-primaryx text-black">
               NAB 2025 Pools Minigames
             </h1>
           </div>
