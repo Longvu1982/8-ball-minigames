@@ -110,9 +110,15 @@ export const GAMES: GameConfig[] = [
 ];
 
 export const DIFFICULTY_COLORS: Record<GameDifficulty, string> = {
-  easy: "bg-green-500",
-  medium: "bg-yellow-500",
-  hard: "bg-red-500",
+  easy: "bg-emerald-600",
+  medium: "bg-amber-500",
+  hard: "bg-red-600",
+};
+
+export const DIFFICULTY_TEXT_COLORS: Record<GameDifficulty, string> = {
+  easy: "text-emerald-600",
+  medium: "text-amber-500",
+  hard: "text-red-600",
 };
 
 export const DIFFICULTY_TEXT: Record<GameDifficulty, string> = {

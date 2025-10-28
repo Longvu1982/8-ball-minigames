@@ -36,9 +36,9 @@ export function GameTabs({ game }: GameTabsProps) {
         </button>
       </div>
 
-      <div className="bg-secondary p-6">
+      <div className="bg-accent/10x bg-transparent rounded-lg">
         {activeTab === "video" && (
-          <div className="flex items-center justify-center bg-muted p-12">
+          <div className="flex items-center justify-center rounded-md">
             <div className="text-center">
               <video
                 controls

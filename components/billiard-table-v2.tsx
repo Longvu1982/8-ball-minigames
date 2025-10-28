@@ -146,20 +146,22 @@ const GridBillardTable = ({ game }: { game: GameConfig }) => {
           Randomize Positions
         </button>
       )}
-      <div className="relative">
-        <Image
-          src={tableTopUpscaleImage}
-          width={1000}
-          height={1000}
-          alt="table"
-          className="w-full h-auto rounded-lg"
-          placeholder="blur"
-        />
-        <div className="absolute top-[11.2%] left-[6.3%] right-[6%] bottom-[11.3%] bg-red-200/0 grid grid-cols-21 grid-rows-11">
-          {((positions.length > 0 &&
-            gamesWithRandomPosition.includes(game.id)) ||
-            !gamesWithRandomPosition.includes(game.id)) &&
-            renderBalls()}
+      <div className="">
+        <div className="relative">
+          <Image
+            src={tableTopUpscaleImage}
+            width={1000}
+            height={1000}
+            alt="table"
+            className="w-full h-auto rounded-lg"
+            placeholder="blur"
+          />
+          <div className="absolute top-[11.2%] left-[6.3%] right-[6%] bottom-[11.3%] bg-red-200/0 grid grid-cols-21 grid-rows-11">
+            {((positions.length > 0 &&
+              gamesWithRandomPosition.includes(game.id)) ||
+              !gamesWithRandomPosition.includes(game.id)) &&
+              renderBalls()}
+          </div>
         </div>
       </div>
     </div>
