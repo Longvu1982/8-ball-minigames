@@ -19,7 +19,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "NAB 2025 Pools Minigames",
+  title: "NAB 2025 Pool Minigames",
   description: "Take challenges and win prizes",
   icons: {
     icon: "/nab-logo.jpg",

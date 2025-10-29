@@ -12,7 +12,7 @@ export default function Home() {
               className="h-10 w-auto rounded-sm"
             />
             <h1 className="text-xl md:text-5xl font-bold text-primaryx text-black">
-              NAB 2025 Pools Minigames
+              NAB 2025 Pool Minigames
             </h1>
           </div>
           <p className="text-xl text-muted-foreground">

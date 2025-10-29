@@ -25,7 +25,7 @@ export function GameListSidebar({
       )}
     >
       <div className="text-white font-bold text-left text-xl px-2 mb-4">
-        GAME LISTS
+        GAME LIST
       </div>
 
       <div className={cn("p-2 space-y-2 px-x")}>
